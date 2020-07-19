@@ -125,3 +125,21 @@ class Flag {
   
 //   // Step 6a: Add the updateLocation() function
 // }
+
+// Constructor
+function Person(name, dob) {
+  this.name = name;
+  this.birthday = new Date(dob);
+  this.calcAge = function() {
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+}
+
+// Instantiating a new object 
+const presh = new Person("Presh", "03-07-1997");
+const gabbie = new Person("Gabbie");
+
+console.log(presh.calcAge());
+console.log(gabbie.calcAge());
